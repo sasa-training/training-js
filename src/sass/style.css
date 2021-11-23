@@ -18,7 +18,9 @@ main {
   cursor: pointer;
   outline: none;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   position: fixed;
   right: 30px;
   bottom: 30px;
@@ -32,16 +34,16 @@ main {
   justify-content: center;
   transition: all 0.3s ease;
   opacity: 0;
-  &::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    margin-bottom: -6px;
-    border-top: solid 3px #fff;
-    border-right: solid 3px #fff;
-    transform: rotate(-45deg);
-  }
-  &:hover {
-    transform: scale(1.1);
-  }
 }
+.page-top::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin-bottom: -6px;
+  border-top: solid 3px #fff;
+  border-right: solid 3px #fff;
+  transform: rotate(-45deg);
+}
+.page-top:hover {
+  transform: scale(1.1);
+}/*# sourceMappingURL=style.css.map */
