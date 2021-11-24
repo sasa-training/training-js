@@ -1,8 +1,74 @@
-header,
-footer {
+@use "reset";
+header {
   width: 100%;
-  height: 100px;
-  background-color: #ccc;
+  height: auto;
+  background-color: rgb(229, 241, 252);
+  position: fixed;
+}
+
+.header {
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+h1 {
+  padding: 20px 10px;
+}
+.gnavi {
+  @media (max-width: 768px) {
+    background: rgb(229, 241, 252);
+    position: fixed;
+    top: 58px;
+    left: 0;
+    width: 100%;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    li {
+      padding: 10px;
+    }
+  }
+  &.open {
+    ul {
+      @media (max-width: 768px) {
+        display: initial;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+    }
+  }
+}
+.toggle-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #16075a;
+    &.open {
+      background-color: #fff;
+    }
+  }
 }
 
 section {
@@ -44,4 +110,10 @@ main {
   &:hover {
     transform: scale(1.1);
   }
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(229, 241, 252);
 }
