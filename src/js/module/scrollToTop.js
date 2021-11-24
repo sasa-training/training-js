@@ -1,5 +1,4 @@
-export default function (){
-    class ScrollToTop {
+    export class ScrollToTop {
         constructor(btnId,btnPosition ,options = {}) {
     　// 変数定義場所
         const defaultOptions = {
@@ -26,5 +25,4 @@ export default function (){
     }
     const schrollToTop = new ScrollToTop("#page-top",400);
     schrollToTop.init();
-}
 
