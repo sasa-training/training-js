@@ -1,16 +1,15 @@
 "use strict";
 {
 	class ScrollToTop {
-		constructor(root, options = {}) {
+		constructor(btnId,btnPosition ,options = {}) {
 	  　// 変数定義場所
 		  const defaultOptions = {
-			scroll_to_top_btn: "#page-top",
-			showBtnPosition: 400,
+			scroll_to_top_btn: btnId,
+			showBtnPosition: btnPosition,
 		};
 		  this.o = Object.assign(defaultOptions, options);
-		  this.root = root;
-		  this.scroll_to_top_btn = document.querySelector("#page-top");
-		  this.showBtnPosition = 400;
+		  this.scroll_to_top_btn = document.querySelector(btnId);
+		  this.showBtnPosition = btnPosition;
 		};
 		// メソッド
 		init() { 
@@ -26,7 +25,7 @@
 			});
 		};
 	}
-	const schrollToTop = new ScrollToTop();
+	const schrollToTop = new ScrollToTop("#page-top",400);
 	schrollToTop.init();
 	//ハンバーガーメニュー
 	const open = "open";
