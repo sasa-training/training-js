@@ -26,10 +26,8 @@
 			});
 		};
 	}
-	  
 	const schrollToTop = new ScrollToTop();
 	schrollToTop.init();
-
 	//ハンバーガーメニュー
 	const open = "open";
 	const nav = document.querySelector("nav");
