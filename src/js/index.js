@@ -1,45 +1,35 @@
 "use strict";
 {
-	//ボタン
-	const scroll_to_top_btn = document.querySelector('#page-top');
-	//クリック時の処理
-	scroll_to_top_btn.addEventListener( 'click' , scroll_to_top );
-	function scroll_to_top(){
-		window.scroll({top: 0, behavior: 'smooth'});
-	};
-
 	class ScrollToTop {
 		constructor(root, options = {}) {
 	  　// 変数定義場所
 		  const defaultOptions = {
 			scroll_to_top_btn: "#page-top",
-		  };
+			showBtnPosition: 400,
+		};
 		  this.o = Object.assign(defaultOptions, options);
 		  this.root = root;
-		  this.scroll_to_top_btn = this.root.querySelectorAll(this.o.scroll_to_top_btn);
-		}
+		  this.scroll_to_top_btn = document.querySelector("#page-top");
+		  this.showBtnPosition = 400;
+		};
 		// メソッド
-		init() {  
-		  //クリック時の処理
-		  scroll_to_top_btn.click(scroll_to_top_btn);
-		   ()=> {
-			  window.scroll({top: 0, behavior: 'smooth'});
-		  };
-		}
-	  }
+		init() { 
+			this.scroll_to_top_btn.addEventListener('click',()=>{
+				window.scroll({top: 0, behavior: 'smooth'});
+			});
+			window.addEventListener('scroll', () => {
+				if(window.pageYOffset > this.showBtnPosition){
+					this.scroll_to_top_btn.style.opacity = '1';
+				}else if(window.pageYOffset < this.showBtnPosition){
+					this.scroll_to_top_btn.style.opacity = '0';
+				}
+			});
+		};
+	}
 	  
-	  const scrollToTop = new ScrollToTop(scroll_to_top_btn);
-	  scrollToTop.init();
-	//スクロール時の処理
-	const　showBtnPosition = 400;
-	window.addEventListener( 'scroll' , scroll_event );
-	function scroll_event(){
-		if(window.pageYOffset > showBtnPosition){
-			scroll_to_top_btn.style.opacity = '1';
-		}else	if(window.pageYOffset < showBtnPosition){
-			scroll_to_top_btn.style.opacity = '0';
-		}
-	};
+	const schrollToTop = new ScrollToTop();
+	schrollToTop.init();
+
 	//ハンバーガーメニュー
 	const open = "open";
 	const nav = document.querySelector("nav");
@@ -49,3 +39,4 @@
 		toggleBtn.classList.toggle(open);
 	});
 }
+
