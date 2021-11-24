@@ -7,6 +7,29 @@
 	function scroll_to_top(){
 		window.scroll({top: 0, behavior: 'smooth'});
 	};
+
+	class ScrollToTop {
+		constructor(root, options = {}) {
+	  　// 変数定義場所
+		  const defaultOptions = {
+			scroll_to_top_btn: "#page-top",
+		  };
+		  this.o = Object.assign(defaultOptions, options);
+		  this.root = root;
+		  this.scroll_to_top_btn = this.root.querySelectorAll(this.o.scroll_to_top_btn);
+		}
+		// メソッド
+		init() {  
+		  //クリック時の処理
+		  scroll_to_top_btn.click(scroll_to_top_btn);
+		   ()=> {
+			  window.scroll({top: 0, behavior: 'smooth'});
+		  };
+		}
+	  }
+	  
+	  const scrollToTop = new ScrollToTop(scroll_to_top_btn);
+	  scrollToTop.init();
 	//スクロール時の処理
 	const　showBtnPosition = 400;
 	window.addEventListener( 'scroll' , scroll_event );
