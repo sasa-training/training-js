@@ -23,6 +23,4 @@
             });
         };
     }
-    const schrollToTop = new ScrollToTop("#page-top",400);
-    schrollToTop.init();
 
