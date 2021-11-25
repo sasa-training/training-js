@@ -1,4 +1,4 @@
-    export class ScrollToTop {
+    export default class ScrollToTop {
         constructor(btnId,btnPosition ,options = {}) {
     　// 変数定義場所
         const defaultOptions = {

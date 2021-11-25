@@ -26,8 +26,26 @@
       </div>
     </header>
     <main>
-      <section>1</section>
-      <section>2</section>
+      <div class="modal__wrap">
+        <div id="btn_open">詳細</div>
+        <div id="mask" class="hidden"></div>
+        <div id="modal" class="hidden">
+          <p>詳細です</p>
+          <div id="btn_close">閉じる</div>
+        </div>
+      </div>
+      <section class="tab_menu">
+        <div class="container">
+          <ul class="menu">
+            <li><a href="#" class="active" data-id="A">A</a></li>
+            <li><a href="#" data-id="B">B</a></li>
+            <li><a href="#" data-id="C">C</a></li>
+          </ul>
+          <div id="A" class="content active">Aの説明です。</div>
+          <div id="B" class="content">Bの説明です。</div>
+          <div id="C" class="content">Cの説明です。</div>
+        </div>
+      </section>
       <section>3</section>
       <section>4</section>
     </main>
