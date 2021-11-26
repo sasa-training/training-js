@@ -2,12 +2,12 @@ export default class ScrollToTop {
   constructor(root, options = {}) {
     // 変数定義場所
     const defaultOptions = {
-      root: btnId,
-      options: btnPosition,
+      root: document.querySelector(root),
+      options: options,
     };
     this.o = Object.assign(defaultOptions, options);
-    this.root = document.querySelector(btnId);
-    this.options = btnPosition;
+    this.root = root;
+    this.options = options;
   }
   // メソッド
   scrollTop() {
