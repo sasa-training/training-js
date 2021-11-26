@@ -5,7 +5,7 @@ import tab from "./module/tab.js";
 
 const scrollToTopDo = new ScrollToTop("#page-top", 400);
 scrollToTopDo.init();
-const tabDo = new tab(".menu li a", ".content");
+const tabDo = new tab(".menu li a");
 tabDo.init();
 spMenu();
 modal();
