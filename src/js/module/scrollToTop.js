@@ -3,10 +3,9 @@ export default class ScrollToTop {
     // 変数定義場所
     const defaultOptions = {
       root: document.querySelector(root),
-      options: options,
     };
     this.o = Object.assign(defaultOptions, options);
-    this.root = root;
+    this.root = this.o.root;
     this.options = options;
   }
   // メソッド
