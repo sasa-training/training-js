@@ -1,8 +1,8 @@
 export default class dropdown {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.querySelector(".main_menu"),
-      classSubmenu: "sub_menu",
+      root: document.querySelectorAll(".main_menu"),
+      classSubmenu: ".sub_menu",
       mouseOver: "mouseover",
       open: "open",
     };
@@ -13,23 +13,25 @@ export default class dropdown {
     this.open = this.o.open;
   }
   dropdownItem() {
-    console.log(this.o);
-    // this.root.forEach((element) => {
-    //   element.addEventListener(
-    //     "mouseover",
-    //     () => {
-    //       element.querySelector(this.classSubmenu).classList.add(this.open);
-    //     },
-    //     false
-    //   );
-    //   element.addEventListener(
-    //     "mouseover",
-    //     () => {
-    //       element.querySelector(this.classSubmenu).classList.remove(this.open);
-    //     },
-    //     false
-    //   );
-    // });
+    console.log(this.open);
+    this.root.forEach((element) => {
+      element.addEventListener(
+        "mouseover",
+        () => {
+          element.querySelectorAll(this.classSubmenu).classList.add(this.open);
+        },
+        false
+      );
+      element.addEventListener(
+        "mouseover",
+        () => {
+          element
+            .querySelectorAll(this.classSubmenu)
+            .classList.remove(this.open);
+        },
+        false
+      );
+    });
   }
   init() {
     this.dropdownItem();
