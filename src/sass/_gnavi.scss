@@ -1,0 +1,77 @@
+.gnavi {
+  @media (max-width: 768px) {
+    background: rgb(229, 241, 252);
+    position: fixed;
+    top: 58px;
+    left: 0;
+    width: 100%;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    li {
+      padding: 10px;
+    }
+  }
+  &.open {
+    ul {
+      @media (max-width: 768px) {
+        display: initial;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+    }
+  }
+}
+.toggle-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #16075a;
+    &.open {
+      background-color: #fff;
+    }
+  }
+}
+.main_menu {
+  background: #333;
+  width: 33.333%;
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+  cursor: pointer;
+  position: relative;
+}
+.sub_menu {
+  position: absolute;
+  background: #aaa;
+  width: 100%;
+  transform: translateY(-500px);
+  transition: 0.5s;
+  z-index: -3;
+}
+.sub_menu > li {
+  padding: 20px 0;
+}
+.sub_menu > li:hover {
+  background: red;
+}
+.open {
+  transform: translateY(20px);
+}

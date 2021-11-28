@@ -1,0 +1,50 @@
+.tab_menu {
+  font-size: 0.875rem;
+}
+.container {
+  margin: 30px auto;
+  width: 500px;
+}
+.menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu li a {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 0;
+  color: #000;
+  text-decoration: none;
+  height: 100%;
+}
+.menu li a.active {
+  background: #e5f1fc;
+  color: #000;
+  border-radius: 4px 4px 0 0;
+}
+.menu li a:not(.active) {
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #e5f1fc;
+  background: rgba($color: #e5f1fc, $alpha: 0.5);
+}
+
+.menu li a:not(.active):hover {
+  opacity: 0.5;
+  transition: opacity 0.4s;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #e5f1fc;
+  background: rgba($color: #e5f1fc, $alpha: 0.8);
+}
+.content.active {
+  background: #e5f1fc;
+  color: #000;
+  min-height: 150px;
+  padding: 12px;
+  display: block;
+}
+.content {
+  display: none;
+}
