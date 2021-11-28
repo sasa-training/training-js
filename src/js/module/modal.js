@@ -18,26 +18,25 @@ export default class modal {
     this.mask = this.o.mask;
   }
   modalOpen() {
-    // console.log(this.o);
-    // this.root.addEventListener("click", () => {
-    // this.modalBox.classList.remove(this.hidden);
-    // this.mask.classList.remove(this.hidden);
-    // });
+    this.root.addEventListener(this.click, () => {
+      this.modalBox.classList.remove(this.hidden);
+      this.mask.classList.remove(this.hidden);
+    });
   }
-  // modalClose() {
-  // this.btnClose.addEventListener("click", () => {
-  // this.modalBox.classList.add(this.hidden);
-  // this.mask.classList.add(this.hidden);
-  // });
-  // }
-  // modalMask() {
-  // this.mask.addEventListener("click", () => {
-  // this.btnClose.click();
-  // });
-  // }
+  modalClose() {
+    this.btnClose.addEventListener(this.click, () => {
+      this.modalBox.classList.add(this.hidden);
+      this.mask.classList.add(this.hidden);
+    });
+  }
+  modalMask() {
+    this.mask.addEventListener(this.click, () => {
+      this.btnClose.click();
+    });
+  }
   init() {
     this.modalOpen();
-    // this.modalClose();
-    // this.modalMask();
+    this.modalClose();
+    this.modalMask();
   }
 }
