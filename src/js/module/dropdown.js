@@ -1,34 +1,38 @@
 export default class dropdown {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.querySelectorAll(".main_menu"),
-      classSubmenu: document.querySelectorAll(".sub_menu"),
+      root: document.querySelectorAll(".dropdown-toggle"),
+      mainMenu: document.querySelectorAll(".main_menu"),
+      submenu: document.querySelectorAll("ul.sub_menu"),
       mouseOver: "mouseover",
-      mouseOut: "mouseOut",
-      open: document.querySelector(".open"),
+      mouseOut: "mouseout",
+      click: "click",
+      open: "is-open",
     };
     this.o = Object.assign(defaultOptions, options);
     this.root = this.o.root;
     this.options = options;
-    this.classSubmenu = this.o.classSubmenu;
+    this.submenu = this.o.submenu;
+    this.mainMenu = this.o.mainMenu;
     this.mouseOver = this.o.mouseOver;
     this.mouseOut = this.o.mouseOut;
+    this.click = this.o.click;
     this.open = this.o.open;
   }
   dropdownItem() {
     console.log(this.root);
-    this.root.forEach((e) => {
-      this.root.addEventListener(
+    this.root.forEach((item) => {
+      item.addEventListener(
         this.mouseOver,
         () => {
-          this.classSubmenu.classList.add(this.open);
+          this.submenu[0].classList.add(this.open);
         },
         false
       );
-      this.root.addEventListener(
+      item.addEventListener(
         this.mouseOut,
         () => {
-          this.classSubmenu.classList.remove(this.open);
+          this.submenu[0].classList.remove(this.open);
         },
         false
       );
