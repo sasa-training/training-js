@@ -1,12 +1,12 @@
 export default class modal {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.getElementById("btn_open"),
+      root: document.getElementsByClassName("btn_open"),
       click: "click",
       hidden: "hidden",
-      btnClose: document.getElementById("btn_close"),
-      modalBox: document.getElementById("modal"),
-      mask: document.getElementById("mask"),
+      btnClose: document.getElementsByClassName("btn_close"),
+      modalBox: document.getElementsByClassName("modal"),
+      mask: document.getElementsByClassName("mask"),
     };
     this.o = Object.assign(defaultOptions, options);
     this.root = this.o.root;
@@ -18,20 +18,21 @@ export default class modal {
     this.mask = this.o.mask;
   }
   modalOpen() {
-    this.root.addEventListener(this.click, () => {
-      this.modalBox.classList.remove(this.hidden);
-      this.mask.classList.remove(this.hidden);
+    console.log(this.root[0]);
+    this.root[0].addEventListener(this.click, () => {
+      this.modalBox[0].classList.remove(this.hidden);
+      this.mask[0].classList.remove(this.hidden);
     });
   }
   modalClose() {
-    this.btnClose.addEventListener(this.click, () => {
-      this.modalBox.classList.add(this.hidden);
-      this.mask.classList.add(this.hidden);
+    this.btnClose[0].addEventListener(this.click, () => {
+      this.modalBox[0].classList.add(this.hidden);
+      this.mask[0].classList.add(this.hidden);
     });
   }
   modalMask() {
-    this.mask.addEventListener(this.click, () => {
-      this.btnClose.click();
+    this.mask[0].addEventListener(this.click, () => {
+      this.btnClose[0].click();
     });
   }
   init() {

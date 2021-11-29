@@ -669,8 +669,8 @@ button.dropdown-toggle::after {
   margin-top: 100px;
 }
 
-#btn_open,
-#btn_close {
+.btn_open,
+.btn_close {
   cursor: pointer;
   width: 200px;
   border: 1px solid #ccc;
@@ -680,7 +680,7 @@ button.dropdown-toggle::after {
   margin: 16px auto;
 }
 
-#mask {
+.mask {
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
@@ -689,11 +689,11 @@ button.dropdown-toggle::after {
   right: 0;
   z-index: 1;
 }
-#mask.hidden {
+.mask.hidden {
   display: none;
 }
 
-#modal {
+.modal {
   background: #fff;
   width: 300px;
   padding: 20px;
@@ -706,10 +706,10 @@ button.dropdown-toggle::after {
   transition: 0.4s;
   z-index: 2;
 }
-#modal p {
+.modal p {
   margin: 0 0 20px;
 }
-#modal.hidden {
+.modal.hidden {
   transform: translate(0, -500px);
 }
 

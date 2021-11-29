@@ -1,8 +1,8 @@
 .modal__wrap {
   margin-top: 100px;
 }
-#btn_open,
-#btn_close {
+.btn_open,
+.btn_close {
   cursor: pointer;
   width: 200px;
   border: 1px solid #ccc;
@@ -11,7 +11,7 @@
   padding: 12px 0;
   margin: 16px auto;
 }
-#mask {
+.mask {
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
@@ -23,7 +23,7 @@
     display: none;
   }
 }
-#modal {
+.modal {
   background: #fff;
   width: 300px;
   padding: 20px;
