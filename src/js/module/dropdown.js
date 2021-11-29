@@ -1,11 +1,11 @@
 export default class dropdown {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.querySelectorAll(".main_menu"),
-      classSubmenu: document.querySelectorAll(".sub_menu"),
+      root: document.getElementsByClassName(".main_menu"),
+      classSubmenu: document.getElementsByClassName(".sub_menu"),
       mouseOver: "mouseover",
       mouseOut: "mouseOut",
-      open: document.querySelectorAll(".open"),
+      open: document.getElementsByClassName(".open"),
     };
     this.o = Object.assign(defaultOptions, options);
     this.root = this.o.root;
@@ -16,18 +16,19 @@ export default class dropdown {
     this.open = this.o.open;
   }
   dropdownItem() {
-    this.root.forEach((element) => {
-      element.addEventListener(
+    this.root.forEach((e) => {
+      console.log(this);
+      this.root.addEventListener(
         this.mouseOver,
         () => {
-          element.this.classSubmenu.classList.add(this.open);
+          this.classSubmenu.classList.add(this.open);
         },
         false
       );
-      element.addEventListener(
+      this.root.addEventListener(
         this.mouseOut,
         () => {
-          element.this.classSubmenu.classList.remove(this.open);
+          this.classSubmenu.classList.remove(this.open);
         },
         false
       );

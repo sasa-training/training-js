@@ -2,7 +2,7 @@ import ScrollToTop from "./module/scrollToTop.js";
 import spMenu from "./module/spMenu.js";
 import modal from "./module/modal.js";
 import tab from "./module/tab.js";
-import dropdown from "./module/dropdown.js";
+import dropdown from "./module/dropdown-2.js";
 
 // トップに戻る
 const scrollToTopDo = new ScrollToTop("#page-top", 400);

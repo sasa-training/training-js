@@ -459,6 +459,9 @@ template {
   display: none;
 }
 
+.gnavi {
+  padding: 10px;
+}
 @media (max-width: 768px) {
   .gnavi {
     background: #e5f1fc;
@@ -468,22 +471,28 @@ template {
     width: 100%;
   }
 }
-.gnavi ul {
+.gnavi .inner__gnavi {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
 }
 @media (max-width: 768px) {
-  .gnavi ul {
+  .gnavi .inner__gnavi {
     display: none;
   }
 }
-.gnavi ul li {
+.gnavi .inner__gnavi.sub_menu {
+  flex-direction: column;
+  padding: 0px;
+  margin: 0;
+}
+.gnavi .inner__gnavi li a {
   padding: 10px;
+  display: inline-block;
 }
 @media (max-width: 768px) {
-  .gnavi.open ul {
+  .gnavi.open .inner__gnavi {
     display: initial;
     flex-direction: column;
     justify-content: flex-start;
@@ -512,34 +521,90 @@ template {
   }
 }
 .main_menu {
-  background: #333;
-  width: 33.333%;
-  text-align: center;
-  color: #fff;
-  padding: 20px 0;
+  padding: 0;
   cursor: pointer;
   position: relative;
 }
 
 .sub_menu {
   position: absolute;
+  top: 48px;
+  left: 0;
   background: #aaa;
   width: 100%;
-  transform: translateY(-500px);
   transition: 0.5s;
   z-index: -3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media (max-width: 768px) {
+  .sub_menu {
+    background: none;
+    position: relative;
+    top: 0;
+    position: initial;
+    display: none;
+  }
+}
+.sub_menu > li {
+  position: initial;
+  display: none;
+}
+.sub_menu.is-open {
+  display: block;
+}
+.sub_menu.is-open > li {
+  position: initial;
+  display: block;
 }
 
 .sub_menu > li {
-  padding: 20px 0;
+  padding: 0;
 }
 
 .sub_menu > li:hover {
-  background: red;
+  background: #333;
 }
 
-.open {
-  transform: translateY(20px);
+button.dropdown-toggle {
+  display: inline-block;
+  left: 0.5rem;
+  top: 0.1rem;
+  width: 13px;
+  height: 13px;
+  fill: #404040;
+  transition: fill 0.15s ease;
+}
+
+button.dropdown-toggle::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+}
+
+button.dropdown-toggle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 48%;
+  right: 7px;
+  transform: translateY(-45%) rotate(135deg);
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #404040;
+  border-right: 2px solid #404040;
+  transition: all 0.3s;
+}
+
+.extend-btnArea {
+  position: relative;
 }
 
 .tab_menu {

@@ -1,4 +1,5 @@
 .gnavi {
+  padding: 10px;
   @media (max-width: 768px) {
     background: rgb(229, 241, 252);
     position: fixed;
@@ -6,7 +7,7 @@
     left: 0;
     width: 100%;
   }
-  ul {
+  .inner__gnavi {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,12 +15,18 @@
     @media (max-width: 768px) {
       display: none;
     }
-    li {
+    &.sub_menu {
+      flex-direction: column;
+      padding: 0px;
+      margin: 0;
+    }
+    li a {
       padding: 10px;
+      display: inline-block;
     }
   }
   &.open {
-    ul {
+    .inner__gnavi {
       @media (max-width: 768px) {
         display: initial;
         flex-direction: column;
@@ -49,29 +56,86 @@
     }
   }
 }
+
 .main_menu {
-  background: #333;
-  width: 33.333%;
-  text-align: center;
-  color: #fff;
-  padding: 20px 0;
+  padding: 0;
   cursor: pointer;
   position: relative;
 }
+
 .sub_menu {
   position: absolute;
+  top: 48px;
+  left: 0;
   background: #aaa;
   width: 100%;
-  transform: translateY(-500px);
   transition: 0.5s;
   z-index: -3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @media (max-width: 768px) {
+    background: none;
+    position: relative;
+    top: 0;
+    position: initial;
+    display: none;
+  }
+  & > li {
+    position: initial;
+    display: none;
+  }
+  &.is-open {
+    display: block;
+    & > li {
+      position: initial;
+      display: block;
+    }
+  }
 }
 .sub_menu > li {
-  padding: 20px 0;
+  padding: 0;
 }
 .sub_menu > li:hover {
-  background: red;
+  background: #333;
 }
-.open {
-  transform: translateY(20px);
+
+button.dropdown-toggle {
+  display: inline-block;
+  left: 0.5rem;
+  top: 0.1rem;
+  width: 13px;
+  height: 13px;
+  fill: #404040;
+  transition: fill 0.15s ease;
+}
+
+button.dropdown-toggle::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+}
+
+button.dropdown-toggle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 48%;
+  right: 7px;
+  transform: translateY(-45%) rotate(135deg);
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #404040;
+  border-right: 2px solid #404040;
+  transition: all 0.3s;
+}
+
+.extend-btnArea {
+  position: relative;
 }
