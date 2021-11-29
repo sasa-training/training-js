@@ -16,5 +16,5 @@ spMenuDo.init();
 const dropdownDo = new dropdown();
 dropdownDo.init();
 // モーダル
-const modalDo = new modal();
+const modalDo = new modal(".js-modal");
 modalDo.init();

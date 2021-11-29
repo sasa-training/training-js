@@ -693,7 +693,7 @@ button.dropdown-toggle::after {
   display: none;
 }
 
-.modal {
+.js-modal {
   background: #fff;
   width: 300px;
   padding: 20px;
@@ -706,10 +706,10 @@ button.dropdown-toggle::after {
   transition: 0.4s;
   z-index: 2;
 }
-.modal p {
+.js-modal p {
   margin: 0 0 20px;
 }
-.modal.hidden {
+.js-modal.hidden {
   transform: translate(0, -500px);
 }
 

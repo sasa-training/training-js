@@ -1,11 +1,11 @@
 export default class modal {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.getElementsByClassName("btn_open"),
+      root: document.querySelectorAll(root),
       click: "click",
       hidden: "hidden",
+      btnOpen: document.getElementsByClassName("btn_open"),
       btnClose: document.getElementsByClassName("btn_close"),
-      modalBox: document.getElementsByClassName("modal"),
       mask: document.getElementsByClassName("mask"),
     };
     this.o = Object.assign(defaultOptions, options);
@@ -13,20 +13,19 @@ export default class modal {
     this.options = options;
     this.click = this.o.click;
     this.hidden = this.o.hidden;
+    this.btnOpen = this.o.btnOpen;
     this.btnClose = this.o.btnClose;
-    this.modalBox = this.o.modalBox;
     this.mask = this.o.mask;
   }
   modalOpen() {
-    console.log(this.root[0]);
-    this.root[0].addEventListener(this.click, () => {
-      this.modalBox[0].classList.remove(this.hidden);
+    this.btnOpen[0].addEventListener(this.click, () => {
+      this.root[0].classList.remove(this.hidden);
       this.mask[0].classList.remove(this.hidden);
     });
   }
   modalClose() {
     this.btnClose[0].addEventListener(this.click, () => {
-      this.modalBox[0].classList.add(this.hidden);
+      this.root[0].classList.add(this.hidden);
       this.mask[0].classList.add(this.hidden);
     });
   }
