@@ -1,8 +1,8 @@
 export default class dropdown {
   constructor(root, options = {}) {
     const defaultOptions = {
-      root: document.querySelector(".dropdown-toggle"),
-      mainMenu: document.querySelectorAll(".main_menu"),
+      root: ".dropdown-toggle",
+      mainMenu: document.querySelectorAll("li.main_menu"),
       submenu: document.querySelectorAll("ul.sub_menu"),
       click: "click",
       open: "is-open",
@@ -17,8 +17,7 @@ export default class dropdown {
   }
   dropdownItem() {
     document.addEventListener(this.click, (e) => {
-      if (!e.target.closest(".dropdown-toggle")) {
-        //値を上手く取れないため直接指定
+      if (!e.target.closest(this.root)) {
         this.mainMenu[0].classList.remove(this.open);
         this.submenu[0].classList.remove(this.open);
       } else {
